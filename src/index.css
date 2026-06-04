@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-primary: #105d38; /* Lealt Verde - Custom Primary */
+  --color-primary-dark: #0a3d24;
+  --color-primary-light: #1ea362;
+  --color-accent: #f0c808; /* Yellow accent for contrast if needed */
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900;
+  }
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm rounded-xl;
+}
+
+/* Custom keyframes for premium pulsing glow on hover */
+@keyframes hover-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(16, 93, 56, 0.2), 0 0 2px rgba(16, 93, 56, 0.1);
+    border-color: rgba(16, 93, 56, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(16, 93, 56, 0.5), 0 0 6px rgba(16, 93, 56, 0.25);
+    border-color: rgba(16, 93, 56, 0.6);
+  }
+}
+
+@keyframes hover-glow-dark {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(30, 163, 98, 0.25), 0 0 2px rgba(30, 163, 98, 0.15);
+    border-color: rgba(30, 163, 98, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(30, 163, 98, 0.6), 0 0 8px rgba(30, 163, 98, 0.3);
+    border-color: rgba(30, 163, 98, 0.65);
+  }
+}
+
+.brand-logo-glow {
+  transition: all 0.3s ease-in-out;
+}
+
+.BrandLogo {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out !important;
+}
+
+/* Custom keyframes for premium blinking red border when duplicate prefix is detected */
+@keyframes border-blink-red {
+  0%, 100% {
+    border-color: #dc2626 !important;
+    box-shadow: 0 0 10px rgba(220, 38, 38, 0.4), inset 0 0 4px rgba(220, 38, 38, 0.25) !important;
+  }
+  50% {
+    border-color: #f87171 !important;
+    box-shadow: 0 0 22px rgba(239, 68, 68, 0.8), inset 0 0 10px rgba(239, 68, 68, 0.5) !important;
+  }
+}
+
+.brand-logo-alert-duplicate {
+  animation: border-blink-red 1.2s infinite ease-in-out !important;
+  border-width: 2px !important;
+  background-color: rgb(254, 242, 242) !important;
+}
+
+.dark .brand-logo-alert-duplicate {
+  background-color: rgba(69, 10, 10, 0.45) !important;
+}
+
+.BrandLogo:hover {
+  transform: rotate(5deg) !important;
+}
+
+.brand-logo-glow:hover {
+  animation: hover-glow 2s infinite ease-in-out;
+}
+
+.dark .brand-logo-glow:hover {
+  animation: hover-glow-dark 2s infinite ease-in-out;
+}
+
+.tab-active {
+  @apply border-b-2 border-primary text-primary font-semibold;
+}
+
+.btn-primary {
+  @apply bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2;
+}
+
+@media print {
+  .BrandLogo {
+    width: 80px !important;
+    max-width: 80px !important;
+    min-width: 80px !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+    padding: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  .BrandLogo:hover {
+    transform: none !important;
+    animation: none !important;
+    box-shadow: none !important;
+  }
+  .BrandLogo svg, .BrandLogo img {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+    transform: none !important;
+    animation: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .BrandLogo span {
+    font-size: 11px !important;
+    line-height: normal !important;
+    letter-spacing: 0.05em !important;
+    color: #0f172a !important;
+    transform: none !important;
+    animation: none !important;
+    font-weight: 800 !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .ScheduleView table {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    display: table !important;
+  }
+  
+  .ScheduleView td .font-bold,
+  .ScheduleView td .font-black,
+  .ScheduleView td span,
+  .ScheduleView .font-mono,
+  .ScheduleView td.font-mono {
+    font-weight: 850 !important;
+    color: #000000 !important;
+  }
+
+  /* Exibir prefixos duplicados em vermelho negrito absoluto no papel */
+  .ScheduleView td span.scale-dup-prefix,
+  .ScheduleView .scale-dup-prefix,
+  #print-ready-sheet-wrapper td span.scale-dup-prefix,
+  #print-ready-sheet-wrapper .scale-dup-prefix,
+  tr td .scale-dup-prefix {
+    color: #dc2626 !important;
+    font-weight: 950 !important;
+    background-color: #fef2f2 !important;
+    border: 1px solid #fca5a5 !important;
+    padding: 2px 4px !important;
+    border-radius: 4px !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Garantir que o PDF separe os dias de escala de maneira limpa em cada página */
+  .date-section {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+  .date-section + .date-section {
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 40px !important;
+    border-top: 2px dashed #94a3b8 !important;
+    padding-top: 20px !important;
+  }
+}
+

@@ -1,0 +1,6 @@
+{
+  "name": "Grupo Liderança / Expresso Marly / JJ Tur",
+  "description": "Sistema de gestão integrada para empresas de ônibus rodoviário, com controle de frota, motoristas, manutenção, documentos e integração com Google Drive.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
