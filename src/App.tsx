@@ -33,6 +33,7 @@ import {
   Info
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Analytics } from '@vercel/analytics/react';
 import { cn } from './lib/utils';
 
 // Import our central database types and modular views
@@ -1121,6 +1122,7 @@ export default function App() {
             )}
           </AnimatePresence>
       </div>
+      <Analytics />
     </div>
   );
 }
