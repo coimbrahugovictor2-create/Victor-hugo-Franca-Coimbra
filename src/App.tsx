@@ -34,6 +34,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from './lib/utils';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // Import our central database types and modular views
 import { FLEET_DATA, Vehicle } from './data/fleetData';
@@ -1121,6 +1122,7 @@ export default function App() {
             )}
           </AnimatePresence>
       </div>
+      <SpeedInsights />
     </div>
   );
 }
